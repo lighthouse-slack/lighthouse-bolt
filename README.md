@@ -72,6 +72,7 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+
 A Slack integration for Lighthouse – an open-source, automated tool for improving the quality of web pages.
 
 Lighthouse helps identify and fix common problems that affect your site's performance, accessibility, and user experience. Learn more about it [here](https://developers.google.com/web/tools/lighthouse/?utm_source=devtools).
