@@ -1,4 +1,4 @@
-const helpCommand = async (app, payload, context) => {
+const mainCommand = async (app, payload, context) => {
   try {
     const result = await app.client.views.open({
       token: context.botToken,
@@ -52,4 +52,4 @@ const helpCommand = async (app, payload, context) => {
   }
 };
 
-module.exports = helpCommand;
+module.exports = mainCommand;

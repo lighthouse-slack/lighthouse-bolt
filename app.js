@@ -1,5 +1,5 @@
 const { App } = require("@slack/bolt");
-const helpCommand = require("./src/commands/help");
+const mainCommand = require("./src/commands/main");
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -12,7 +12,7 @@ const app = new App({
 
 app.command("/lighthouse-bolt", async ({ ack, payload, context }) => {
   ack(); // Acknowledge the command request
-  await helpCommand(app, payload, context);
+  await mainCommand(app, payload, context);
 });
 
 (async () => {
