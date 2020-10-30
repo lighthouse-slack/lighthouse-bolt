@@ -4,8 +4,8 @@ const { App } = require("@slack/bolt");
 const mainCommand = require("./commands/main");
 const runCommand = require("./commands/run");
 const dotenv = require("dotenv");
-const openFullReportModal = require("./src/commands/full-report-modal");
-const openCustomReportModal = require("./src/commands/custom-report-modal");
+const openFullReportModal = require("./commands/full-report-modal");
+const openCustomReportModal = require("./commands/custom-report-modal");
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
