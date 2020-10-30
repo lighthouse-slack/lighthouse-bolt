@@ -1,10 +1,11 @@
-'use strict'
+"use strict";
 
 const { App } = require("@slack/bolt");
 const mainCommand = require("./commands/main");
 const runCommand = require("./commands/run");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 const openFullReportModal = require("./src/commands/full-report-modal");
+const openCustomReportModal = require("./src/commands/custom-report-modal");
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -12,7 +13,7 @@ const app = new App({
   endpoints: {
     events: "/slack/events",
     commands: "/slack/commands",
-  }
+  },
 });
 
 const ENV = process.env.NODE_ENV || "development";
@@ -30,12 +31,16 @@ app.command("/lighthouse-bolt-run", async ({ ack, say, payload, context }) => {
     if (payload.text.match(/run\s+.*/)) {
       await runCommand(say, payload);
     } else {
-      await say('Enter a valid command.');
+      await say("Enter a valid command.");
     }
   } else {
     mainCommand(app, payload, context);
   }
+});
 
+app.action("custom_report", async ({ ack, body, context }) => {
+  ack();
+  await openCustomReportModal(app, body, context);
 });
 
 app.action("full_report", async ({ ack, body, context }) => {

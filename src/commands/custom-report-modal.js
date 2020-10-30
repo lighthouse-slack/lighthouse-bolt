@@ -1,11 +1,11 @@
-const fullReport = require("../payloads/full-report.js");
+const customReport = require("../payloads/custom-report.js");
 
-const openFullReportModal = async (app, body, context) => {
+const openCustomReportModal = async (app, body, context) => {
   try {
     const result = await app.client.views.open({
       token: context.botToken,
       trigger_id: body.trigger_id,
-      view: fullReport,
+      view: customReport,
     });
     console.log(body, result);
   } catch (error) {
@@ -13,4 +13,4 @@ const openFullReportModal = async (app, body, context) => {
   }
 };
 
-module.exports = openFullReportModal;
+module.exports = openCustomReportModal;
