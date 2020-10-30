@@ -1,0 +1,24 @@
+{
+  "name": "lighthouse-bolt",
+  "version": "1.0.0",
+  "description": "A Lighthouse Slack integration.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lighthouse-slack/lighthouse-bolt.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/lighthouse-slack/lighthouse-bolt/issues"
+  },
+  "homepage": "https://github.com/lighthouse-slack/lighthouse-bolt#readme",
+  "dependencies": {
+    "@slack/bolt": "^2.4.1",
+    "nodemon": "^2.0.6"
+  }
+}
