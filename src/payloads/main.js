@@ -34,6 +34,7 @@ const main = [
           text: "Run full report",
         },
         value: "full_report",
+        action_id: "full_report",
       },
       {
         type: "button",
@@ -42,6 +43,7 @@ const main = [
           text: "Customize report",
         },
         value: "custom_report",
+        action_id: "custom_report",
       },
     ],
   },

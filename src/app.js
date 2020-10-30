@@ -37,6 +37,11 @@ app.command("/lighthouse-bolt-run", async ({ ack, say, payload, context }) => {
 
 });
 
+app.action("full_report", async ({ ack, body, context }) => {
+  ack();
+  await openFullReportModal(app, body, context);
+});
+
 (async () => {
   await app.start(process.env.PORT || 3000);
   console.log("⚡️ Bolt app is running!");
