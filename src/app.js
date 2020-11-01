@@ -19,12 +19,7 @@ const app = new App({
 const ENV = process.env.NODE_ENV || "development";
 if (ENV === "development") dotenv.config();
 
-app.command("/lighthouse-bolt", async ({ ack, payload, context }) => {
-  ack(); // Acknowledge the command request
-  await mainCommand(app, payload, context);
-});
-
-app.command("/lighthouse-bolt-run", async ({ ack, say, payload, context }) => {
+app.command("/lighthouse", async ({ ack, say, payload, context }) => {
   await ack();
 
   if (payload.text) {
@@ -38,14 +33,14 @@ app.command("/lighthouse-bolt-run", async ({ ack, say, payload, context }) => {
   }
 });
 
-app.action("custom_report", async ({ ack, body, context }) => {
-  ack();
-  await openCustomReportModal(app, body, context);
-});
-
 app.action("full_report", async ({ ack, body, context }) => {
   ack();
   await openFullReportModal(app, body, context);
+});
+
+app.action("custom_report", async ({ ack, body, context }) => {
+  ack();
+  await openCustomReportModal(app, body, context);
 });
 
 (async () => {

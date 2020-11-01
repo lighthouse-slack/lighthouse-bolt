@@ -7,7 +7,6 @@ const openFullReportModal = async (app, body, context) => {
       trigger_id: body.trigger_id,
       view: fullReport,
     });
-    console.log(body, result);
   } catch (error) {
     console.error(error);
   }

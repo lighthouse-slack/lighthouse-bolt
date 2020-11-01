@@ -7,7 +7,6 @@ const mainCommand = async (app, payload, context) => {
       channel: payload.channel_id,
       blocks,
     });
-    console.log(result);
   } catch (error) {
     console.error(error);
   }
