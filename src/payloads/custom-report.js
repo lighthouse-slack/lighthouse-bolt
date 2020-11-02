@@ -1,5 +1,6 @@
 const customReport = {
   type: "modal",
+  callback_id: "view_custom_report",
   title: {
     type: "plain_text",
     text: "Lighthouse",
@@ -18,7 +19,7 @@ const customReport = {
           text: "Enter a website",
           emoji: true,
         },
-        action_id: "plain_text_input-action",
+        action_id: "custom_report_input",
       },
       label: {
         type: "plain_text",
@@ -104,7 +105,6 @@ const customReport = {
         },
       ],
     },
-   
   ],
 };
 
