@@ -1,31 +1,38 @@
 "use strict";
 
-const { generateFullReport } = require('../helpers/report-generator');
-const { validateURL } = require('../helpers/url-helper');
+const { generateFullReport } = require("../helpers/report-generator");
+const { validateURL } = require("../helpers/url-helper");
+const sendMessage = require("./send-message");
 
-const sendLoadingMessage = async (say, payload) => {
-  if (payload) {
-    await say('Running report...');
-  } 
+const sendLoadingMessage = async (sendMessageArgs) => {
+  const message = "Running report...";
+  const args = {
+    ...sendMessageArgs,
+    message,
+  };
+  await sendMessage(args);
 };
 
-const getReportMessage = async (say, url) => {
-  const reportURL = await generateFullReport(say, url);
+const getReportMessage = async (sendMessageArgs, url) => {
+  const reportURL = await generateFullReport(sendMessageArgs, url);
   return `You can view your report here: ${reportURL}`;
 };
 
-const runCommand = async (say, payload) => {
-
-  const url = payload.text.split(' ')[1];
-  
-  if (!(validateURL(url))) {
-    await say(`The URL you\'ve entered (${url}) is invalid. Please try again.`)
+const runCommand = async (sendMessageArgs, payload, modalInput) => {
+  const url = modalInput ? modalInput : payload.text.split(" ")[1];
+  if (!validateURL(url)) {
+    const args = {
+      ...sendMessageArgs,
+      message: `The URL you\'ve entered (${url}) is invalid. Please try again.`,
+    };
+    await sendMessage(args);
     return;
   }
 
-  await sendLoadingMessage(say, payload);
-  const reportMessage = await getReportMessage(say, url);
-  await say(reportMessage);
+  await sendLoadingMessage(sendMessageArgs);
+  const reportMessage = await getReportMessage(sendMessageArgs, url);
+  const args = { ...sendMessageArgs, message: reportMessage };
+  await sendMessage(args);
 
   return;
 };

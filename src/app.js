@@ -24,7 +24,12 @@ app.command("/lighthouse", async ({ ack, say, payload, context }) => {
 
   if (payload.text) {
     if (payload.text.match(/run\s+.*/)) {
-      await runCommand(say, payload);
+      const sendMessageArgs = {
+        app,
+        botToken: context.botToken,
+        channel: payload.channel_id,
+      };
+      await runCommand(sendMessageArgs, payload);
     } else {
       await say("Enter a valid command.");
     }
@@ -36,6 +41,19 @@ app.command("/lighthouse", async ({ ack, say, payload, context }) => {
 app.action("full_report", async ({ ack, body, context }) => {
   ack();
   await openFullReportModal(app, body, context);
+});
+
+app.view("view_full_report", async ({ ack, view, body, context }) => {
+  await ack();
+  const modalInput = view.state.values.full_report.full_report_input.value;
+  const user = body.user.id;
+  const sendMessageArgs = {
+    app,
+    botToken: context.botToken,
+    channel: user,
+  };
+
+  await runCommand(sendMessageArgs, undefined, modalInput);
 });
 
 app.action("custom_report", async ({ ack, body, context }) => {
