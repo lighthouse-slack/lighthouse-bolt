@@ -1,14 +1,3 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -22,14 +11,13 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/lighthouse-slack/lighthouse-bolt">
     <img src="https://www.leankoala.com/media/249/download/lighthouse.png?v=1" alt="Logo" width="120" height="120">
   </a>
 
@@ -38,14 +26,14 @@
   <p align="center">
     A Lighthouse Slack integration for everyone.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/lighthouse-slack/lighthouse-bolt#about-the-project"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/lighthouse-slack/lighthouse-bolt/">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/lighthouse-slack/lighthouse-bolt/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/lighthouse-slack/lighthouse-bolt/issues">Request Feature</a>
   </p>
 </p>
 
@@ -77,21 +65,20 @@ A Slack integration for Lighthouse – an open-source, automated tool for improv
 
 Lighthouse helps identify and fix common problems that affect your site's performance, accessibility, and user experience. Learn more about it [here](https://developers.google.com/web/tools/lighthouse/?utm_source=devtools).
 
-With our bot, you can choose to run the full report, or select the specific audits you'd like to run. Information on all the audits can be found (here)[https://web.dev/learn/#lighthouse].
+With our bot, you can choose to run the full report, or select the specific audits you'd like to run. Information on all the audits can be found [here](https://web.dev/learn/#lighthouse).
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+* [Bolt](https://github.com/slackapi/bolt-js)
+* [Nodemon](https://github.com/remy/nodemon)
+* [AWS SDK](https://aws.amazon.com/sdk-for-node-js/)
+* [Lighthouse](https://github.com/GoogleChrome/lighthouse)
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
@@ -106,7 +93,7 @@ npm install npm@latest -g
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/your_username_/lighthouse-bolt.git
 ```
 3. Install NPM packages
 ```sh
@@ -122,16 +109,12 @@ const API_KEY = 'ENTER YOUR API';
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+_In Progress_
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/lighthouse-slack/lighthouse-bolt/issues?q=is%3Aopen+is%3Aissue) for a list of proposed features (and known issues).
 
 
 
@@ -151,49 +134,41 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Eivenlour David 
+> [![linkedin-shield]](https://www.linkedin.com/in/eivenlour/)
+<br> 
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Helen Gezahegn 
+> [![linkedin-shield]](https://linkedin.com/in/HelenGezahegn)
+<br>
 
-
+Winnie Ren 
+> [![linkedin-shield]](https://www.linkedin.com/in/WinnieRen/) 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/lighthouse-slack/lighthouse-bolt.svg?style=flat-square
 [contributors-url]: https://github.com/lighthouse-slack/lighthouse-bolt/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/lighthouse-slack/lighthouse-bolt.svg?style=flat-square
 [forks-url]: https://github.com/lighthouse-slack/lighthouse-bolt/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
+[stars-shield]: https://img.shields.io/github/stars/lighthouse-slack/lighthouse-bolt.svg?style=flat-square
 [stars-url]: https://github.com/lighthouse-slack/lighthouse-bolt/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/lighthouse-slack/lighthouse-bolt.svg?style=flat-square
 [issues-url]: https://github.com/lighthouse-slack/lighthouse-bolt/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
+[license-shield]: https://img.shields.io/github/license/lighthouse-slack/lighthouse-bolt.svg?style=flat-square
 [license-url]: https://github.com/lighthouse-slack/lighthouse-bolt/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: https://i.ibb.co/J7FQdtM/Screen-Shot-2020-10-30-at-12-31-31-AM.png
