@@ -69,6 +69,7 @@ With our bot, you can choose to run the full report, or select the specific audi
 
 ### Built With
 * [Bolt](https://github.com/slackapi/bolt-js)
+* [Ngrok](https://ngrok.com/)
 * [Nodemon](https://github.com/remy/nodemon)
 * [AWS SDK](https://aws.amazon.com/sdk-for-node-js/)
 * [Lighthouse](https://github.com/GoogleChrome/lighthouse)
@@ -82,16 +83,19 @@ To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+In your local environment, you need:
+* [Node.js](https://nodejs.org/en/) (comes with npm)
+* nodemon
 ```sh
-npm install npm@latest -g
+npm i nodemon
 ```
+* [ngrok](https://ngrok.com/)
+
 
 ### Installation
 
 1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+2. Fork and clone your forked repo
 ```sh
 git clone https://github.com/your_username_/lighthouse-bolt.git
 ```
@@ -109,7 +113,15 @@ const API_KEY = 'ENTER YOUR API';
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-_In Progress_
+1. Run the app locally
+```sh
+npm start
+```
+
+2. Run ngrok to host Slack bot
+```sh
+ngrok http 3000
+```
 
 <!-- ROADMAP -->
 ## Roadmap
