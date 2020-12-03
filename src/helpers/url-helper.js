@@ -18,13 +18,14 @@ const validateURL = (url) => {
   }
 };
 
-const shortenURL = async (say, url) => {
+const shortenURL = async (app, payload, context, url) => {
   let shortURL;
   try {
     shortURL = await TinyURL.shorten(url);
     return shortURL;
   } catch (err) {
-    await say("Something went wrong. Try again later.");
+    const errorMessage = 'Something went wrong. Try again later.';
+    await sendTextMessage(app, context.botToken, payload.channel_id, errorMessage);
     return;
   }
 };

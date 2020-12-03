@@ -1,32 +1,33 @@
 "use strict";
 
 const { generateFullReport } = require('../helpers/report-generator');
+const {sendTextMessage } = require('../helpers/message-sender');
 const { validateURL } = require('../helpers/url-helper');
 
-const sendLoadingMessage = async (say, payload) => {
+const sendLoadingMessage = async (app, payload, context) => {
   if (payload) {
-    await say('Running report...');
-  } 
+    const loadingMessage = 'Running report...';
+    await sendTextMessage(app, context.botToken, payload.channel_id, loadingMessage);
+  }
 };
 
-const getReportMessage = async (say, url) => {
-  const reportURL = await generateFullReport(say, url);
+const getReportMessage = async (app, payload, context, url) => {
+  const reportURL = await generateFullReport(app, payload, context, url);
   return `You can view your report here: ${reportURL}`;
 };
 
-const runCommand = async (say, payload) => {
+const runCommand = async (app, payload, context) => {
 
   const url = payload.text.split(' ')[1];
   
   if (!(validateURL(url))) {
-    await say(`The URL you\'ve entered (${url}) is invalid. Please try again.`)
+    const errorMessage = `The URL you\'ve entered (${url}) is invalid. Please try again.`;
+    await sendTextMessage(app, context.botToken, payload.channel_id, errorMessage);
     return;
   }
-
-  await sendLoadingMessage(say, payload);
-  const reportMessage = await getReportMessage(say, url);
-  await say(reportMessage);
-
+  await sendLoadingMessage(app, payload, context);
+  const reportMessage = await getReportMessage(app, payload, context, url);
+  await sendTextMessage(app, context.botToken, payload.channel_id, reportMessage);
   return;
 };
 
