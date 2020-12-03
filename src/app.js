@@ -7,6 +7,9 @@ const dotenv = require("dotenv");
 const openFullReportModal = require("./commands/full-report-modal");
 const openCustomReportModal = require("./commands/custom-report-modal");
 
+const ENV = process.env.NODE_ENV || "development";
+if (ENV === "development") dotenv.config();
+
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
@@ -16,26 +19,20 @@ const app = new App({
   },
 });
 
-const ENV = process.env.NODE_ENV || "development";
-if (ENV === "development") dotenv.config();
-
-app.command("/lighthouse-bolt", async ({ ack, payload, context }) => {
-  ack(); // Acknowledge the command request
-  await mainCommand(app, payload, context);
-});
-
-app.command("/lighthouse-bolt-run", async ({ ack, say, payload, context }) => {
+app.command("/lighthouse", async ({ ack, payload, context }) => {
   await ack();
 
   if (payload.text) {
     if (payload.text.match(/run\s+.*/)) {
-      await runCommand(say, payload);
+      await runCommand(app, payload, context);
     } else {
-      await say("Enter a valid command.");
+      const errorMessage = "Enter a valid command.";
+      await sendTextMessage(app, context.botToken, payload.channel_id, errorMessage);
     }
   } else {
     mainCommand(app, payload, context);
   }
+
 });
 
 app.action("custom_report", async ({ ack, body, context }) => {
