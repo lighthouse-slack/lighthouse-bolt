@@ -48,7 +48,7 @@ app.action("custom_report", async ({ ack, body, context }) => {
   await openCustomReportModal(app, body, context);
 });
 
-app.action("categories", async ({ ack}) => {
+app.action("categories", async ({ ack }) => {
   await ack();
 });
 
