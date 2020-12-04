@@ -1,12 +1,13 @@
 const customReport = {
   type: "modal",
+  callback_id: "view_custom_report",
   title: {
     type: "plain_text",
-    text: "Lighthouse",
+    text: "Lighthouse"
   },
   submit: {
     type: "plain_text",
-    text: "Submit",
+    text: "Submit"
   },
   blocks: [
     {
@@ -16,24 +17,24 @@ const customReport = {
         placeholder: {
           type: "plain_text",
           text: "Enter a website",
-          emoji: true,
+          emoji: true
         },
-        action_id: "plain_text_input-action",
+        action_id: "plain_text_input-action"
       },
       label: {
         type: "plain_text",
-        text: "What's the website you want to audit?",
-      },
+        text: "What's the website you want to audit?"
+      }
     },
     {
-      type: "divider",
+      type: "divider"
     },
     {
       type: "section",
       text: {
         type: "mrkdwn",
-        text: "*Which categories do you want to run?*",
-      },
+        text: "*Which categories do you want to run?*"
+      }
     },
     {
       type: "actions",
@@ -44,68 +45,67 @@ const customReport = {
             {
               text: {
                 type: "mrkdwn",
-                text: "*Accessibility*",
+                text: "*Accessibility*"
               },
               description: {
                 type: "mrkdwn",
                 text:
-                  "*Can all users access content and navigate your site effectively?*",
+                  "*Can all users access content and navigate your site effectively?*"
               },
-              value: "accessibility",
+              value: "accessibility"
             },
             {
               text: {
                 type: "mrkdwn",
-                text: "*Progressive Web App (PWA)*",
+                text: "*Progressive Web App (PWA)*"
               },
               description: {
                 type: "mrkdwn",
                 text:
-                  "*Measure if your site is fast, reliable and installable.*",
+                  "*Measure if your site is fast, reliable and installable.*"
               },
-              value: "progressive",
+              value: "progressive"
             },
             {
               text: {
                 type: "mrkdwn",
-                text: "*Best Practices*",
+                text: "*Best Practices*"
               },
               description: {
                 type: "mrkdwn",
                 text:
-                  "*Improve code health of your web page following these best practices*",
+                  "*Improve code health of your web page following these best practices*"
               },
-              value: "value-2",
+              value: "value-2"
             },
             {
               text: {
                 type: "mrkdwn",
-                text: "*Performance*",
+                text: "*Performance*"
               },
               description: {
                 type: "mrkdwn",
                 text:
-                  "*Measure performance and find opportunities to speed up page loads.*",
+                  "*Measure performance and find opportunities to speed up page loads.*"
               },
-              value: "value-2",
+              value: "value-2"
             },
             {
               text: {
                 type: "mrkdwn",
-                text: "*SEO*",
+                text: "*SEO*"
               },
               description: {
                 type: "mrkdwn",
-                text: "*How well can search engines understand your content?*",
+                text: "*How well can search engines understand your content?*"
               },
-              value: "value-2",
-            },
-          ],
-        },
-      ],
-    },
-   
-  ],
+              value: "value-2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 };
 
 module.exports = customReport;

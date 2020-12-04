@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 const TinyURL = require('tinyurl');
 const { sendMessage } = require('./message-helper');
@@ -22,7 +22,7 @@ const shortenURL = async (credentials, url) => {
     shortURL = await TinyURL.shorten(url);
     return shortURL;
   } catch (err) {
-    const errorMessage = 'Something went wrong. Try again later.';
+    const errorMessage = "Something went wrong. Try again later.";
     await sendMessage(credentials, { text: errorMessage });
     return;
   }

@@ -6,7 +6,7 @@ const { addHttpProtocol, validateURL } = require('../helpers/url-helper');
 
 const sendLoadingMessage = async (credentials) => {
   if (credentials.channel) {
-    const loadingMessage = 'Running report...';
+    const loadingMessage = "Running report...";
     return await sendMessage(credentials, { text: loadingMessage });
   }
 };
