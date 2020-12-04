@@ -5,9 +5,8 @@ const openFullReportModal = async (app, body, context) => {
     const result = await app.client.views.open({
       token: context.botToken,
       trigger_id: body.trigger_id,
-      view: fullReport,
+      view: fullReport
     });
-    console.log(body, result);
   } catch (error) {
     console.error(error);
   }

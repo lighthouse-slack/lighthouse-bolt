@@ -7,7 +7,6 @@ const openCustomReportModal = async (app, body, context) => {
       trigger_id: body.trigger_id,
       view: customReport,
     });
-    console.log(body, result);
   } catch (error) {
     console.error(error);
   }
