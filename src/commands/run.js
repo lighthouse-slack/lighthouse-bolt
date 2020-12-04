@@ -22,7 +22,7 @@ const runCommand = async (credentials, url) => {
     await sendMessage(credentials, { text: errorMessage });
     return;
   }
-  const loadingMessageTS= (await sendLoadingMessage(credentials)).ts;
+  const loadingMessageTS = (await sendLoadingMessage(credentials)).ts;
   const reportMessage = await getReportMessage(credentials, url);
   await sendMessage(credentials, { text: reportMessage });
   await deleteMessage(credentials, loadingMessageTS);
