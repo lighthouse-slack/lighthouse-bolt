@@ -6,7 +6,7 @@ const chromeLauncher = require('chrome-launcher');
 const { v1: uuidv1 } = require('uuid');
 const { deviceForms } = require('../constants');
 const { shortenURL } = require('./url-helper');
-const { sendTextMessage } = require('./message-sender');
+const { sendMessage } = require('./message-sender');
 
 const s3 = new aws.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -14,7 +14,7 @@ const s3 = new aws.S3({
   region: process.env.REGION
 });
 
-const uploadFile = async (app, payload, context, file) => {
+const uploadFile = async (credentials, file) => {
   const uniqueId = uuidv1();
   const fileName = `report-${uniqueId}.html`;
   const fileType = 'text/html';
@@ -32,15 +32,15 @@ const uploadFile = async (app, payload, context, file) => {
 
   try {
     let data = await s3.upload(params).promise();
-    return await shortenURL(app, payload, context, data.Location);
+    return await shortenURL(credentials, data.Location);
   } catch (err) {
     const errorMessage = 'Something went wrong. Try again later.';
-    await sendTextMessage(app, context.botToken, payload.channel_id, errorMessage);
+    await sendMessage(credentials, { text: errorMessage });
     return;
   }
 };
 
-const generateCustomizedReport = async (app, payload, context, url, categoryList, deviceForm) => {
+const generateCustomizedReport = async (credentials, url, categoryList, deviceForm) => {
 
   const chrome = await chromeLauncher.launch({
     chromeFlags: ['--headless']
@@ -55,15 +55,15 @@ const generateCustomizedReport = async (app, payload, context, url, categoryList
   
   const runnerResult = await lighthouse(url, options);
   const reportFile = Buffer.from(runnerResult.report, 'utf-8');
-  const reportURL = await uploadFile(app, payload, context, reportFile);
+  const reportURL = await uploadFile(credentials, reportFile);
 
   await chrome.kill();
 
   return reportURL;
 };
 
-const generateFullReport = async (app, payload, context, url) => {
-  return await generateCustomizedReport(app, payload, context, url, null, deviceForms.MOBILE);
+const generateFullReport = async (credentials, url) => {
+  return await generateCustomizedReport(credentials, url, null, deviceForms.MOBILE);
 };
 
 module.exports = { generateFullReport, generateCustomizedReport };

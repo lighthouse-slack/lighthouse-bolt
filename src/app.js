@@ -6,6 +6,7 @@ const runCommand = require("./commands/run");
 const dotenv = require("dotenv");
 const openFullReportModal = require("./commands/full-report-modal");
 const openCustomReportModal = require("./commands/custom-report-modal");
+const { sendMessage } = require('./helpers/message-sender');
 
 const ENV = process.env.NODE_ENV || "development";
 if (ENV === "development") dotenv.config();
@@ -22,15 +23,22 @@ const app = new App({
 app.command("/lighthouse", async ({ ack, payload, context }) => {
   await ack();
 
+  const credentials = {
+    app,
+    token: context.botToken,
+    channel: payload.channel_id
+  };
+
   if (payload.text) {
     if (payload.text.match(/run\s+.*/)) {
-      await runCommand(app, payload, context);
+      const url = payload.text.split(' ')[1];
+      await runCommand(credentials, url);
     } else {
       const errorMessage = "Enter a valid command.";
-      await sendTextMessage(app, context.botToken, payload.channel_id, errorMessage);
+      await sendMessage(credentials, { text: errorMessage });
     }
   } else {
-    mainCommand(app, payload, context);
+    mainCommand(credentials);
   }
 
 });

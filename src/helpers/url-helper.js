@@ -2,6 +2,7 @@
 
 const { URL, parse } = require('url');
 const TinyURL = require('tinyurl');
+const { sendMessage } = require('../helpers/message-sender');
 
 const validateURL = (url) => {
   const protocols = ['http', 'https'];
@@ -18,14 +19,14 @@ const validateURL = (url) => {
   }
 };
 
-const shortenURL = async (app, payload, context, url) => {
+const shortenURL = async (credentials, url) => {
   let shortURL;
   try {
     shortURL = await TinyURL.shorten(url);
     return shortURL;
   } catch (err) {
     const errorMessage = 'Something went wrong. Try again later.';
-    await sendTextMessage(app, context.botToken, payload.channel_id, errorMessage);
+    await sendMessage(credentials, { text: errorMessage });
     return;
   }
 };

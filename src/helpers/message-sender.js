@@ -1,25 +1,13 @@
-const sendTextMessage = async (app, token, channel, text) => {
+const sendMessage = async ({app, token, channel}, message) => {
   try {
     await app.client.chat.postMessage({
       token,
       channel,
-      text,
+      ...message,
     });
   } catch (error) {
     console.error(error);
   }
 };
 
-const sendBlockMessage = async (app, token, channel, blocks) => {
-  try {
-    await app.client.chat.postMessage({
-      token,
-      channel,
-      blocks,
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-module.exports = { sendTextMessage, sendBlockMessage };
+module.exports = { sendMessage };
