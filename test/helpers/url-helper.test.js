@@ -31,6 +31,16 @@ describe('UrlHelper Tests', () => {
     expect(validateURL(testUrl)).toBeFalsy();
   });
 
+  it('should return false if no URL when empty Url is called', () => {
+    const testUrl = '';
+    expect(validateURL(testUrl)).toBeFalsy();
+  });
+
+  it('should return false if no URL when invalidate Url is called', () => {
+    const testUrl = 21;
+    expect(validateURL(testUrl)).toBeFalsy();
+  });
+
   it('should return shortURL when shortenURL is called', async () => {
     const testUrl = 'https://example.com';
     const testTinyUrl = 'https://tinyurl.com/test';
