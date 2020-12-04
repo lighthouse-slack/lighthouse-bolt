@@ -26,62 +26,70 @@ describe('MessageHelper Tests', () => {
     }
   });
 
-  it('should call app.client.chat.postMessage with proper arguments when sendMessage is called', async () => {
-    const message = 'Test';
-    await sendMessage(credentials, { text: message });
-    await expect(app.client.chat.postMessage).toBeCalledWith({
-      token: credentials.token,
-      channel: credentials.channel,
-      text: message
-    });
-  });
+  describe('sendMessage tests', () => {
 
-  it('should call console.error when sendMessage is called and error is caught', async () => {
-    const err = new Error();
-    const throwErrorSpy = jest.fn().mockImplementation(() => { throw err });
-    const newApp = {
-      client: {
-        chat: {
-          postMessage: throwErrorSpy
+    it('should call app.client.chat.postMessage with proper arguments when sendMessage is called', async () => {
+      const message = 'Test';
+      await sendMessage(credentials, { text: message });
+      await expect(app.client.chat.postMessage).toBeCalledWith({
+        token: credentials.token,
+        channel: credentials.channel,
+        text: message
+      });
+    });
+
+    it('should call console.error when sendMessage is called and error is caught', async () => {
+      const err = new Error();
+      const throwErrorSpy = jest.fn().mockImplementation(() => { throw err });
+      const newApp = {
+        client: {
+          chat: {
+            postMessage: throwErrorSpy
+          }
         }
       }
-    }
-    const newCredentials = {
-      ...credentials,
-      app: newApp
-    }
-    const message = 'Test';
-    await sendMessage(newCredentials, { text: message });
-    expect(console.error).toBeCalledWith(err);
-  });
-
-  it('should call app.client.chat.delete with proper arguments when deleteMessage is called', async () => {
-    const ts = '0123456789';
-    await deleteMessage(credentials, ts);
-    await expect(app.client.chat.delete).toBeCalledWith({
-      token: credentials.token,
-      channel: credentials.channel,
-      ts
+      const newCredentials = {
+        ...credentials,
+        app: newApp
+      }
+      const message = 'Test';
+      await sendMessage(newCredentials, { text: message });
+      expect(console.error).toBeCalledWith(err);
     });
+
   });
 
-  it('should call console.error when deleteMessage is called and error is caught', async () => {
-    const err = new Error();
-    const throwErrorSpy = jest.fn().mockImplementation(() => { throw err });
-    const newApp = {
-      client: {
-        chat: {
-          delete: throwErrorSpy
+  describe('sendMessage tests', () => {
+
+    it('should call app.client.chat.delete with proper arguments when deleteMessage is called', async () => {
+      const ts = '0123456789';
+      await deleteMessage(credentials, ts);
+      await expect(app.client.chat.delete).toBeCalledWith({
+        token: credentials.token,
+        channel: credentials.channel,
+        ts
+      });
+    });
+
+    it('should call console.error when deleteMessage is called and error is caught', async () => {
+      const err = new Error();
+      const throwErrorSpy = jest.fn().mockImplementation(() => { throw err });
+      const newApp = {
+        client: {
+          chat: {
+            delete: throwErrorSpy
+          }
         }
       }
-    }
-    const newCredentials = {
-      ...credentials,
-      app: newApp
-    }
-    const ts = '0123456789';
-    await deleteMessage(newCredentials, ts);
-    expect(console.error).toBeCalledWith(err);
-  });
+      const newCredentials = {
+        ...credentials,
+        app: newApp
+      }
+      const ts = '0123456789';
+      await deleteMessage(newCredentials, ts);
+      expect(console.error).toBeCalledWith(err);
+    });
 
+  });
+  
 });
