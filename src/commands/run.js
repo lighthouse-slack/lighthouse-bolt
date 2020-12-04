@@ -1,13 +1,13 @@
 "use strict";
 
 const { generateFullReport } = require('../helpers/report-generator');
-const {sendMessage } = require('../helpers/message-sender');
+const { sendMessage, deleteMessage } = require('../helpers/message-helper');
 const { validateURL } = require('../helpers/url-helper');
 
 const sendLoadingMessage = async (credentials) => {
   if (credentials.channel) {
     const loadingMessage = 'Running report...';
-    await sendMessage(credentials, { text: loadingMessage });
+    return await sendMessage(credentials, { text: loadingMessage });
   }
 };
 
@@ -22,9 +22,11 @@ const runCommand = async (credentials, url) => {
     await sendMessage(credentials, { text: errorMessage });
     return;
   }
-  await sendLoadingMessage(credentials);
+  const loadingMessageTS = (await sendLoadingMessage(credentials)).ts;
   const reportMessage = await getReportMessage(credentials, url);
   await sendMessage(credentials, { text: reportMessage });
+  await deleteMessage(credentials, loadingMessageTS);
+
   return;
 };
 
