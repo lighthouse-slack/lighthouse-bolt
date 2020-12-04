@@ -11,8 +11,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-
-
+[![codecov](https://codecov.io/gh/lighthouse-slack/lighthouse-bolt/branch/main/graph/badge.svg?token=79M6H1PCWV)](https://codecov.io/gh/lighthouse-slack/lighthouse-bolt)
 
 <!-- PROJECT LOGO -->
 <br />
