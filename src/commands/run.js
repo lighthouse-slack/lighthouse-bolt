@@ -2,7 +2,7 @@
 
 const { generateFullReport } = require('../helpers/report-generator');
 const { sendMessage, deleteMessage } = require('../helpers/message-helper');
-const { validateURL } = require('../helpers/url-helper');
+const { addHttpProtocol, validateURL } = require('../helpers/url-helper');
 
 const sendLoadingMessage = async (credentials) => {
   if (credentials.channel) {
@@ -17,6 +17,8 @@ const getReportMessage = async (credentials, url) => {
 };
 
 const runCommand = async (credentials, url) => {
+  url = addHttpProtocol(url);
+
   if (!(validateURL(url))) {
     const errorMessage = `The URL you\'ve entered (${url}) is invalid. Please try again.`;
     await sendMessage(credentials, { text: errorMessage });
