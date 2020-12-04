@@ -181,6 +181,6 @@ Winnie Ren
 [issues-shield]: https://img.shields.io/github/issues/lighthouse-slack/lighthouse-bolt.svg?style=flat-square
 [issues-url]: https://github.com/lighthouse-slack/lighthouse-bolt/issues
 [license-shield]: https://img.shields.io/github/license/lighthouse-slack/lighthouse-bolt.svg?style=flat-square
-[license-url]: https://github.com/lighthouse-slack/lighthouse-bolt/blob/main/LICENSE.txt
+[license-url]: https://github.com/lighthouse-slack/lighthouse-bolt/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [product-screenshot]: https://i.ibb.co/J7FQdtM/Screen-Shot-2020-10-30-at-12-31-31-AM.png
