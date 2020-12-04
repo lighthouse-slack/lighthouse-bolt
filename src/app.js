@@ -48,8 +48,12 @@ app.action("custom_report", async ({ ack, body, context }) => {
   await openCustomReportModal(app, body, context);
 });
 
+app.action("categories", async ({ ack }) => {
+  await ack();
+});
+
 app.view("view_custom_report", async ({ ack, body, view, context }) => {
-  await ack({ response_action: "clear" });
+  await ack();
   const url = view.state.values.custom_report_url.custom_report_input.value.trim();
   const categoryList = parseCategories(view);
   const user = body.user.id;
