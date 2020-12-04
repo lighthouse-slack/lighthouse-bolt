@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const openFullReportModal = require("./commands/full-report-modal");
 const openCustomReportModal = require("./commands/custom-report-modal");
 const { sendMessage } = require("./helpers/message-helper");
+const parseCategories = require("./helpers/category-helper");
 
 const ENV = process.env.NODE_ENV || "development";
 if (ENV === "development") dotenv.config();
@@ -45,6 +46,20 @@ app.command("/lighthouse", async ({ ack, payload, context }) => {
 app.action("custom_report", async ({ ack, body, context }) => {
   await ack();
   await openCustomReportModal(app, body, context);
+});
+
+app.view("view_custom_report", async ({ ack, body, view, context }) => {
+  await ack({ response_action: "clear" });
+  const url = view.state.values.custom_report_url.custom_report_input.value.trim();
+  const categoryList = parseCategories(view);
+  const user = body.user.id;
+  const credentials = {
+    app,
+    token: context.botToken,
+    channel: user
+  };
+
+  await runCommand(credentials, url, categoryList);
 });
 
 app.action("full_report", async ({ ack, body, context }) => {

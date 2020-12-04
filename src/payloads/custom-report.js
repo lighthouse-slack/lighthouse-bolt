@@ -1,3 +1,5 @@
+const { categories } = require("../constants");
+
 const customReport = {
   type: "modal",
   callback_id: "view_custom_report",
@@ -12,6 +14,7 @@ const customReport = {
   blocks: [
     {
       type: "input",
+      block_id: "custom_report_url",
       element: {
         type: "plain_text_input",
         placeholder: {
@@ -19,7 +22,7 @@ const customReport = {
           text: "Enter a website",
           emoji: true
         },
-        action_id: "plain_text_input-action"
+        action_id: "custom_report_input"
       },
       label: {
         type: "plain_text",
@@ -38,9 +41,11 @@ const customReport = {
     },
     {
       type: "actions",
+      block_id: "selected_categories",
       elements: [
         {
           type: "checkboxes",
+          action_id: "categories",
           options: [
             {
               text: {
@@ -52,7 +57,7 @@ const customReport = {
                 text:
                   "*Can all users access content and navigate your site effectively?*"
               },
-              value: "accessibility"
+              value: categories.ACCESSIBILITY
             },
             {
               text: {
@@ -64,7 +69,7 @@ const customReport = {
                 text:
                   "*Measure if your site is fast, reliable and installable.*"
               },
-              value: "progressive"
+              value: categories.PWA
             },
             {
               text: {
@@ -76,7 +81,7 @@ const customReport = {
                 text:
                   "*Improve code health of your web page following these best practices*"
               },
-              value: "value-2"
+              value: categories.BEST_PRACTICES
             },
             {
               text: {
@@ -88,7 +93,7 @@ const customReport = {
                 text:
                   "*Measure performance and find opportunities to speed up page loads.*"
               },
-              value: "value-2"
+              value: categories.PERFORMANCE
             },
             {
               text: {
@@ -99,7 +104,7 @@ const customReport = {
                 type: "mrkdwn",
                 text: "*How well can search engines understand your content?*"
               },
-              value: "value-2"
+              value: categories.SEO
             }
           ]
         }
