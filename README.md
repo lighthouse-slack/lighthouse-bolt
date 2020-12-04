@@ -69,16 +69,15 @@ With our bot, you can choose to run the full report, or select the specific audi
 ### Built With
 * [Bolt](https://github.com/slackapi/bolt-js)
 * [Ngrok](https://ngrok.com/)
+* [Heroku](https://www.heroku.com/)
 * [Nodemon](https://github.com/remy/nodemon)
 * [AWS SDK](https://aws.amazon.com/sdk-for-node-js/)
 * [Lighthouse](https://github.com/GoogleChrome/lighthouse)
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these steps.
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
@@ -93,7 +92,7 @@ npm i nodemon
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Contact [developers](#contact) for `.env` file, and place it in the root of the project.
 2. Fork and clone your forked repo
 ```sh
 git clone https://github.com/your_username_/lighthouse-bolt.git
@@ -102,11 +101,6 @@ git clone https://github.com/your_username_/lighthouse-bolt.git
 ```sh
 npm install
 ```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
-
 
 
 <!-- USAGE EXAMPLES -->
@@ -152,16 +146,11 @@ Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Eivenlour David 
-> [![linkedin-shield]](https://www.linkedin.com/in/eivenlour/)
-<br> 
+[![linkedin-shield]](https://www.linkedin.com/in/eivenlour/) Eivenlour David
 
-Helen Gezahegn 
-> [![linkedin-shield]](https://linkedin.com/in/HelenGezahegn)
-<br>
+[![linkedin-shield]](https://linkedin.com/in/HelenGezahegn) Helen Gezahegn 
 
-Winnie Ren 
-> [![linkedin-shield]](https://www.linkedin.com/in/WinnieRen/) 
+[![linkedin-shield]](https://www.linkedin.com/in/WinnieRen/) Winnie Ren 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
