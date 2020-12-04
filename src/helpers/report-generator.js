@@ -6,7 +6,7 @@ const chromeLauncher = require('chrome-launcher');
 const { v1: uuidv1 } = require('uuid');
 const { deviceForms } = require('../constants');
 const { shortenURL } = require('./url-helper');
-const { sendMessage } = require('./message-sender');
+const { sendMessage } = require('./message-helper');
 
 const s3 = new aws.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,

@@ -2,7 +2,7 @@
 
 const { URL, parse } = require('url');
 const TinyURL = require('tinyurl');
-const { sendMessage } = require('../helpers/message-sender');
+const { sendMessage } = require('./message-helper');
 
 const validateURL = (url) => {
   const protocols = ['http', 'https'];

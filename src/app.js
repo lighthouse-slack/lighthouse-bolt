@@ -6,7 +6,7 @@ const runCommand = require("./commands/run");
 const dotenv = require("dotenv");
 const openFullReportModal = require("./commands/full-report-modal");
 const openCustomReportModal = require("./commands/custom-report-modal");
-const { sendMessage } = require('./helpers/message-sender');
+const { sendMessage } = require('./helpers/message-helper');
 
 const ENV = process.env.NODE_ENV || "development";
 if (ENV === "development") dotenv.config();
