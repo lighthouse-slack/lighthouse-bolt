@@ -19,7 +19,7 @@ const getReportMessage = async (credentials, url, categoryList) => {
     ? await generateCustomizedReport(credentials, url, categoryList)
     : await generateFullReport(credentials, url);
 
-  return `You can view your report here: ${reportURL}`;
+    return `You can view your report for \`${url}\` here: ${reportURL}`;
 };
 
 const runCommand = async (credentials, url, categoryList) => {
