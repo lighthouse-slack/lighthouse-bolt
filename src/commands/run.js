@@ -13,7 +13,7 @@ const sendLoadingMessage = async (credentials) => {
 
 const getReportMessage = async (credentials, url) => {
   const reportURL = await generateFullReport(credentials, url);
-  return `You can view your report for  \`${url}\` here: ${reportURL}`;
+  return `You can view your report for \`${url}\` here: ${reportURL}`;
 };
 
 const runCommand = async (credentials, url) => {
